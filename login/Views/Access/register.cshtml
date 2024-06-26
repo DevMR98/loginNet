@@ -1,0 +1,58 @@
+﻿@model login.DTOs.UserDto
+@{
+    Layout = null;
+}
+
+<html>
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/login.styles.css" asp-append-version="true" />
+    </head>
+
+    <body>
+        <header>
+
+        </header>
+
+    <div class="row mt-5 justify-content-center">
+        <div class="col-sm-6 col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Register new user
+                </div>
+                <div class="card-body">
+                    <form asp-controller="Access" asp-action="register" method="post">
+                        <input class="form-control mb-3" type="text" placeholder="Name" required asp-for="name" />
+                        <input class="form-control mb-3" type="text" placeholder="Email" required asp-for="email" />
+                        <input class="form-control mb-3" type="password" placeholder="Password" required asp-for="password" />
+                        <input class="form-control mb-3" type="password" placeholder="Confirm password" required asp-for="confirmPassword" />
+                        <div class="d-grid gap-2 mb-3">
+                            <button class="btn btn-primary" type="submit">Register</button>
+                        </div>
+
+                        @{
+                            @if (ViewData["message"] != null)
+                            {
+                                <div class="alert alert-danger" role="alert">
+                                    @ViewData["message"]
+                                </div>
+                            }
+                        }
+                        Already have an account? <a asp-controller="Access" asp-action="login">Login</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    </body>
+    
+</html>
+
