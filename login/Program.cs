@@ -9,7 +9,7 @@ builder.Services.AddDbContext<ContextDB>(options => options.UseSqlServer(builder
 builder.Services.AddControllersWithViews();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
 {
-    options.LoginPath = "/Access/Login",
+    options.LoginPath = "/Access/Login";
     options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
 });
 
@@ -32,6 +32,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Access}/{action=register}");
+    pattern: "{controller=Access}/{action=login}");
 
 app.Run();

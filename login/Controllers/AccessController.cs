@@ -49,6 +49,10 @@ namespace login.Controllers
         [HttpGet]
         public IActionResult login()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("index","home");
+            }
             return View();
         }
         [HttpPost]
